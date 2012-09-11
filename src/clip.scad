@@ -1,11 +1,11 @@
 use <tools/MCAD/metric_fasteners.scad>
 
 // Part PARAMETERS
-overall_thickness = 6;
-extrusion_width = 20;
-extrusion_height = 20;
+overall_thickness = 7;
+extrusion_width = 20.1;
+extrusion_height = 20.1;
 wall_thickness = 4;
-clip_width = 20;
+clip_width = 18;
 clip_length = 10;
 clip_length_offset = 3;
 clip_flange_width = 15;	// FIXME: actually this is size of arrow cube, isn't rly usable as parametrized
@@ -47,19 +47,21 @@ translate([extw + wt + extrusion_channel_offset, (exth + 2 * wt) / 2, ot / 2]) r
 translate([wt + extw / 2 + extrusion_channel_offset, wt + exth / 2, 0]) {
 for (a = [-45, 45, 225]) {
 rotate([0, 0, a])
-translate([-extw / 2 + 1, -exth / 2 + 1, -0.01]) cube([5, 5, ot + 0.02]);
-}
-}
-translate([extw + wt + extrusion_channel_offset, (exth + 2 * wt) / 2, ot / 2]) rotate([0, 0, 45]) cube(size=[extw * 0.5, exth * 0.5, ot + 0.02], center=true);
-// extrusion clip freedom
-translate([extw - wt - extrusion_channel_offset, wt + exth / 2, 0]) {
-for (a = [45, 225]) {
-rotate([0, 0, a])
-translate([-extw / 2 + 2, -exth / 2 + 2, -0.01]) cube([3, 3, ot + 0.02]);
+translate([-extw / 2 + 1.5, -exth / 2 + 1.5, -0.01]) cube([5, 5, ot + 0.02]);
 }
 }
 // spring clip channel
 translate([(extw + wt * 2) / 2, (exth + wt * 2) / 2 - (cch / 2), -0.01]) cube([exth + cl + clo + 5, cch, ot + 0.02]);
 }
-
+// screw nipple for 4-40 or M3 screw:
+difference() {
+union() {
+translate([0, exth / 2 + wt, ot / 2]) rotate([0, -90, 0]) cylinder(r1 = 3, r2 = 2.5, h = ot / 1.414 - wt / 2 + 1, center = false, $fn = 24);
+translate([0, exth / 4 + wt, 1.5]) minkowski() {
+rotate([0, -45, 0]) cube([ot / 1.414 - 2, exth / 2, ot / 1.414 - 2]);
+rotate([90, 0, 0]) cylinder(r = 1, h = 0.01, center = true, $fn = 24);
+}
+}
+translate([-2, exth / 2 + wt, ot / 2]) rotate([0, -90, 0]) cylinder(r = 1.35, h = ot * 3, center = false, $fn = 24);
+}
 }
