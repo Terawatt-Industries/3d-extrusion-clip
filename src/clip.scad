@@ -56,12 +56,12 @@ translate([(extw + wt * 2) / 2, (exth + wt * 2) / 2 - (cch / 2), -0.01]) cube([e
 // screw nipple for 4-40 or M3 screw:
 difference() {
 union() {
-translate([0, exth / 2 + wt, ot / 2]) rotate([0, -90, 0]) cylinder(r1 = 3, r2 = 2.5, h = ot / 1.414 - wt / 2 + 1, center = false, $fn = 24);
+translate([0, exth / 2 + wt, ot / 2]) rotate([0, -90, 0]) cylinder(r1 = 3.2, r2 = 2.5, h = ot / 1.414 - wt / 2 + 2.5, center = false, $fn = 24);
 translate([0, exth / 4 + wt, 1.5]) minkowski() {
 rotate([0, -45, 0]) cube([ot / 1.414 - 2, exth / 2, ot / 1.414 - 2]);
 rotate([90, 0, 0]) cylinder(r = 1, h = 0.01, center = true, $fn = 24);
 }
 }
-translate([-2, exth / 2 + wt, ot / 2]) rotate([0, -90, 0]) cylinder(r = 1.35, h = ot * 3, center = false, $fn = 24);
+translate([-1, exth / 2 + wt, ot / 2]) rotate([0, -90, 0]) cylinder(r = 1.35, h = ot * 3, center = false, $fn = 24);
 }
 }
