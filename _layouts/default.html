@@ -3,6 +3,7 @@
   <head>
     <title>Githubiverse: {{ site.githubiverse.title }} by {{ site.githubiverse.author }}</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="description" content="Open Source 3D Printed Objects by Terawatt Industries.  3D printers and printed parts shared as SCADs and STLs.  Open source electronic schematics, BOMs.  Parts for MendelMax, Prusa, Prism, Mendel, Rostock, and more.">
 
     <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
     
@@ -42,6 +43,19 @@
                   </div>
                   <div class="span3">
                     <ul id="sourcedownloads" class="nav nav-tabs nav-stacked"></ul>
+                  </div>
+                </div>
+              </div>
+
+              <h3>STLs</h3>
+              <div id="stlviewer"></div>
+              <div id="stls-section">
+                <div class="row-fluid">
+                  <div class="span9">
+                    <ul id="stls" class="nav nav-tabs nav-stacked"></ul>
+                  </div>
+                  <div class="span3">
+                    <ul id="stldownloads" class="nav nav-tabs nav-stacked"></ul>
                   </div>
                 </div>
               </div>
@@ -93,18 +107,6 @@
                 </div>
               </div>              
 
-              <h3>STLs</h3>
-              <div id="stlviewer"></div>
-              <div id="stls-section">
-                <div class="row-fluid">
-                  <div class="span9">
-                    <ul id="stls" class="nav nav-tabs nav-stacked"></ul>
-                  </div>
-                  <div class="span3">
-                    <ul id="stldownloads" class="nav nav-tabs nav-stacked"></ul>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
 
@@ -419,5 +421,18 @@
       });
 
     </script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-35373460-5']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
   </body>
 </html>
